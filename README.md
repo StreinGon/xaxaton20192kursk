@@ -1,1 +1,3 @@
-# xaxaton20192kursk
+# vsuHahaton
+
+A quick description of vsuHahaton.

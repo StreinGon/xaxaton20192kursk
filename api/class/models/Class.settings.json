@@ -1,0 +1,21 @@
+{
+  "connection": "default",
+  "collectionName": "",
+  "info": {
+    "name": "class",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "date": {
+      "default": "",
+      "type": "date"
+    },
+    "group": {
+      "default": "",
+      "type": "integer"
+    }
+  }
+}

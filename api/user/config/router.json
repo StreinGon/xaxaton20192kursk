@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/user/setAvatar",
+      "handler": "User.setAvatar",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

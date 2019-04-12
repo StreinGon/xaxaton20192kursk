@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/thememessages",
+      "handler": "Thememessage.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/thememessages/count",
+      "handler": "Thememessage.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/thememessages/:_id",
+      "handler": "Thememessage.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/thememessages",
+      "handler": "Thememessage.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/thememessages/:_id",
+      "handler": "Thememessage.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/thememessages/:_id",
+      "handler": "Thememessage.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
