@@ -5,11 +5,11 @@
       "connector": "strapi-hook-mongoose",
       "settings": {
         "client": "mongo",
-        "host": "127.0.0.1",
+        "host": "http://node54970-kakanton.mycloud.by",
         "port": 27017,
         "database": "hakaton",
-        "username": "",
-        "password": ""
+        "username": "admin",
+        "password": "QEKgnk10841"
       },
       "options": {}
     }
