@@ -7,13 +7,11 @@
  */
 
 module.exports = {
-  setAvatar: async ctx => {
-    if (ctx.query._q) {
-      return strapi.services.thememessage.search(ctx.query);
-    } else {
-      return strapi.services.thememessage.fetchAll(ctx.query);
-    }
-  },
+  /**
+   * set achive to user via email and title.
+   *
+   * @return {Object}
+   */
   setAchive: async ctx => {
     if (ctx.request.body.achiveTitle && ctx.request.body.email) {
       return Achives.findOne({ title: ctx.request.body.achiveTitle }).then(
@@ -41,6 +39,11 @@ module.exports = {
     }
     return ctx.badRequest("Auth error");
   },
+  /**
+   * Receive all user achives.
+   *
+   * @return {Object}
+   */
   getMyAchives: async ctx => {
     if (ctx.state.user) {
       return strapi.plugins["users-permissions"].models.user
@@ -61,6 +64,11 @@ module.exports = {
     }
     return ctx.badRequest("You should login");
   },
+  /**
+   * delete achive via title.
+   *
+   * @return {Object}
+   */
   deleteAchive: async ctx => {
     if (ctx.request.body.achiveTitle && ctx.request.body.email) {
       return Achives.findOne({ title: ctx.request.body.achiveTitle }).then(

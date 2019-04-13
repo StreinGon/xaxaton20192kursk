@@ -74,6 +74,11 @@ module.exports = {
   destroy: async (ctx, next) => {
     return strapi.services.termpaper.remove(ctx.params);
   },
+  /**
+   * Create new Term paper.
+   *
+   * @return {Object}
+   */
   createNewTP: async ctx => {
     if (!ctx.state.user) {
       return ctx.badRequest("Auth error");
@@ -102,6 +107,11 @@ module.exports = {
         });
       });
   },
+  /**
+   * Accept Temp paper via theme.
+   *
+   * @return {Object}
+   */
   takeTP: async ctx => {
     if (!ctx.state.user) {
       return ctx.badRequest("Auth error");
@@ -131,6 +141,11 @@ module.exports = {
         });
       });
   },
+  /**
+   * Get all available TP.
+   *
+   * @return {Object}
+   */
   getAvTP: async ctx => {
     console.log("fasf");
     if (!ctx.state.user) {
@@ -153,6 +168,11 @@ module.exports = {
           });
       });
   },
+  /**
+   * Get all accepted TP.
+   *
+   * @return {Object}
+   */
   getAcTP: async ctx => {
     if (!ctx.state.user) {
       return ctx.badRequest("Auth error");
@@ -174,6 +194,11 @@ module.exports = {
           });
       });
   },
+  /**
+   * Get all  TP for lecturer.
+   *
+   * @return {Object}
+   */
   getLecturerTP: async ctx => {
     if (!ctx.state.user) {
       return ctx.badRequest("Auth error");

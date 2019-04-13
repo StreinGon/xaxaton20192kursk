@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/achives/getAchives",
+      "handler": "Achives.getAchives",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/achives",
       "handler": "Achives.find",
       "config": {

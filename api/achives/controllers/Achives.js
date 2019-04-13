@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * Achives.js controller
@@ -7,14 +7,39 @@
  */
 
 module.exports = {
-
+  /**
+   * Retrieve use achives records by email.
+   *
+   * @return {Array}
+   */
+  getAchives: async ctx => {
+    if (ctx.request.query.email) {
+      return strapi.plugins["users-permissions"].models.user
+        .findOne({ email: ctx.request.query.email })
+        .then(user => {
+          if (!user) {
+            return ctx.badRequest("User not found");
+          }
+          return Relationuserachives.find({
+            user: user.id
+          })
+            .populate("achives")
+            .then(data => {
+              if (!data) {
+              }
+              return ctx.send({ msg: "Added", data: { user, data } });
+            });
+        });
+    }
+    return ctx.badRequest("Please provide email");
+  },
   /**
    * Retrieve achives records.
    *
    * @return {Object|Array}
    */
 
-  find: async (ctx) => {
+  find: async ctx => {
     if (ctx.query._q) {
       return strapi.services.achives.search(ctx.query);
     } else {
@@ -28,7 +53,7 @@ module.exports = {
    * @return {Object}
    */
 
-  findOne: async (ctx) => {
+  findOne: async ctx => {
     if (!ctx.params._id.match(/^[0-9a-fA-F]{24}$/)) {
       return ctx.notFound();
     }
@@ -42,7 +67,7 @@ module.exports = {
    * @return {Number}
    */
 
-  count: async (ctx) => {
+  count: async ctx => {
     return strapi.services.achives.count(ctx.query);
   },
 
@@ -52,7 +77,7 @@ module.exports = {
    * @return {Object}
    */
 
-  create: async (ctx) => {
+  create: async ctx => {
     return strapi.services.achives.add(ctx.request.body);
   },
 
@@ -63,7 +88,7 @@ module.exports = {
    */
 
   update: async (ctx, next) => {
-    return strapi.services.achives.edit(ctx.params, ctx.request.body) ;
+    return strapi.services.achives.edit(ctx.params, ctx.request.body);
   },
 
   /**
