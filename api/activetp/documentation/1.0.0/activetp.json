@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/availabletps": {
+    "/activetps": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Availabletp"
+                    "$ref": "#/components/schemas/Activetp"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Availabletp"
+          "Activetp"
         ],
         "parameters": [
           {
@@ -195,7 +195,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Availabletp"
+                  "$ref": "#/components/schemas/Activetp"
                 }
               }
             }
@@ -233,7 +233,7 @@
         },
         "summary": "",
         "tags": [
-          "Availabletp"
+          "Activetp"
         ],
         "requestBody": {
           "description": "",
@@ -241,14 +241,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAvailabletp"
+                "$ref": "#/components/schemas/NewActivetp"
               }
             }
           }
         }
       }
     },
-    "/availabletps/count": {
+    "/activetps/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -300,12 +300,12 @@
         },
         "summary": "",
         "tags": [
-          "Availabletp"
+          "Activetp"
         ],
         "parameters": []
       }
     },
-    "/availabletps/{_id}": {
+    "/activetps/{_id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -315,7 +315,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Availabletp"
+                  "$ref": "#/components/schemas/Activetp"
                 }
               }
             }
@@ -353,7 +353,7 @@
         },
         "summary": "",
         "tags": [
-          "Availabletp"
+          "Activetp"
         ],
         "parameters": [
           {
@@ -377,7 +377,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Availabletp"
+                  "$ref": "#/components/schemas/Activetp"
                 }
               }
             }
@@ -415,7 +415,7 @@
         },
         "summary": "",
         "tags": [
-          "Availabletp"
+          "Activetp"
         ],
         "requestBody": {
           "description": "",
@@ -423,7 +423,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAvailabletp"
+                "$ref": "#/components/schemas/NewActivetp"
               }
             }
           }
@@ -489,7 +489,7 @@
         },
         "summary": "",
         "tags": [
-          "Availabletp"
+          "Activetp"
         ],
         "parameters": [
           {
@@ -508,7 +508,7 @@
   },
   "components": {
     "schemas": {
-      "Availabletp": {
+      "Activetp": {
         "required": [
           "id"
         ],
@@ -573,7 +573,7 @@
           }
         }
       },
-      "NewAvailabletp": {
+      "NewActivetp": {
         "properties": {
           "user": {
             "type": "string"
@@ -587,7 +587,7 @@
   },
   "tags": [
     {
-      "name": "Availabletp"
+      "name": "Activetp"
     }
   ]
 }

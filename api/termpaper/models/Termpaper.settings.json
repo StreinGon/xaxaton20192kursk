@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "termpaper",
   "info": {
-    "name": "termPaper",
+    "name": "termpaper",
     "description": ""
   },
   "options": {
@@ -16,6 +16,10 @@
     "description": {
       "default": "",
       "type": "string"
+    },
+    "accepted": {
+      "default": false,
+      "type": "boolean"
     }
   }
 }

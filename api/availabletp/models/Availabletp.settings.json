@@ -13,7 +13,7 @@
       "model": "user",
       "plugin": "users-permissions"
     },
-    "termPaper": {
+    "termpaper": {
       "model": "termpaper"
     }
   }

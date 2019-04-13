@@ -565,9 +565,6 @@
               },
               "role": {
                 "type": "string"
-              },
-              "relationuserachives": {
-                "type": "string"
               }
             }
           }

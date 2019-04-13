@@ -1,20 +1,20 @@
 {
   "connection": "default",
-  "collectionName": "relationuserachives",
+  "collectionName": "",
   "info": {
-    "name": "relationuserachives",
+    "name": "activetp",
     "description": ""
   },
   "options": {
     "timestamps": true
   },
   "attributes": {
-    "achives": {
-      "model": "achives"
-    },
     "user": {
       "model": "user",
       "plugin": "users-permissions"
+    },
+    "termpaper": {
+      "model": "termpaper"
     }
   }
 }

@@ -1161,22 +1161,6 @@
                 }
               }
             }
-          },
-          "relationuserachives": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "achives": {
-                "type": "string"
-              },
-              "user": {
-                "type": "string"
-              }
-            }
           }
         }
       },
@@ -1213,9 +1197,6 @@
             "default": false
           },
           "role": {
-            "type": "string"
-          },
-          "relationuserachives": {
             "type": "string"
           }
         }

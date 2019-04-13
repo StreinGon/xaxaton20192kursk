@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Termpaper.js service
+ * Activetp.js service
  *
  * @description: A set of functions similar to controller's actions to avoid code duplication.
  */
@@ -12,21 +12,21 @@ const _ = require('lodash');
 module.exports = {
 
   /**
-   * Promise to fetch all termpapers.
+   * Promise to fetch all activetps.
    *
    * @return {Promise}
    */
 
   fetchAll: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('termpaper', params);
+    const filters = strapi.utils.models.convertParams('activetp', params);
     // Select field to populate.
-    const populate = Termpaper.associations
+    const populate = Activetp.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Termpaper
+    return Activetp
       .find()
       .where(filters.where)
       .sort(filters.sort)
@@ -36,90 +36,90 @@ module.exports = {
   },
 
   /**
-   * Promise to fetch a/an termpaper.
+   * Promise to fetch a/an activetp.
    *
    * @return {Promise}
    */
 
   fetch: (params) => {
     // Select field to populate.
-    const populate = Termpaper.associations
+    const populate = Activetp.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    return Termpaper
-      .findOne(_.pick(params, _.keys(Termpaper.schema.paths)))
+    return Activetp
+      .findOne(_.pick(params, _.keys(Activetp.schema.paths)))
       .populate(populate);
   },
 
   /**
-   * Promise to count termpapers.
+   * Promise to count activetps.
    *
    * @return {Promise}
    */
 
   count: (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('termpaper', params);
+    const filters = strapi.utils.models.convertParams('activetp', params);
 
-    return Termpaper
+    return Activetp
       .countDocuments()
       .where(filters.where);
   },
 
   /**
-   * Promise to add a/an termpaper.
+   * Promise to add a/an activetp.
    *
    * @return {Promise}
    */
 
   add: async (values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Termpaper.associations.map(ast => ast.alias));
-    const data = _.omit(values, Termpaper.associations.map(ast => ast.alias));
+    const relations = _.pick(values, Activetp.associations.map(ast => ast.alias));
+    const data = _.omit(values, Activetp.associations.map(ast => ast.alias));
 
     // Create entry with no-relational data.
-    const entry = await Termpaper.create(data);
+    const entry = await Activetp.create(data);
 
     // Create relational data and return the entry.
-    return Termpaper.updateRelations({ _id: entry.id, values: relations });
+    return Activetp.updateRelations({ _id: entry.id, values: relations });
   },
 
   /**
-   * Promise to edit a/an termpaper.
+   * Promise to edit a/an activetp.
    *
    * @return {Promise}
    */
 
   edit: async (params, values) => {
     // Extract values related to relational data.
-    const relations = _.pick(values, Termpaper.associations.map(a => a.alias));
-    const data = _.omit(values, Termpaper.associations.map(a => a.alias));
+    const relations = _.pick(values, Activetp.associations.map(a => a.alias));
+    const data = _.omit(values, Activetp.associations.map(a => a.alias));
 
     // Update entry with no-relational data.
-    const entry = await Termpaper.updateOne(params, data, { multi: true });
+    const entry = await Activetp.updateOne(params, data, { multi: true });
 
     // Update relational data and return the entry.
-    return Termpaper.updateRelations(Object.assign(params, { values: relations }));
+    return Activetp.updateRelations(Object.assign(params, { values: relations }));
   },
 
   /**
-   * Promise to remove a/an termpaper.
+   * Promise to remove a/an activetp.
    *
    * @return {Promise}
    */
 
   remove: async params => {
     // Select field to populate.
-    const populate = Termpaper.associations
+    const populate = Activetp.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
     // Note: To get the full response of Mongo, use the `remove()` method
     // or add spent the parameter `{ passRawResult: true }` as second argument.
-    const data = await Termpaper
+    const data = await Activetp
       .findOneAndRemove(params, {})
       .populate(populate);
 
@@ -128,7 +128,7 @@ module.exports = {
     }
 
     await Promise.all(
-      Termpaper.associations.map(async association => {
+      Activetp.associations.map(async association => {
         if (!association.via || !data._id || association.dominant) {
           return true;
         }
@@ -149,22 +149,22 @@ module.exports = {
   },
 
   /**
-   * Promise to search a/an termpaper.
+   * Promise to search a/an activetp.
    *
    * @return {Promise}
    */
 
   search: async (params) => {
     // Convert `params` object to filters compatible with Mongo.
-    const filters = strapi.utils.models.convertParams('termpaper', params);
+    const filters = strapi.utils.models.convertParams('activetp', params);
     // Select field to populate.
-    const populate = Termpaper.associations
+    const populate = Activetp.associations
       .filter(ast => ast.autoPopulate !== false)
       .map(ast => ast.alias)
       .join(' ');
 
-    const $or = Object.keys(Termpaper.attributes).reduce((acc, curr) => {
-      switch (Termpaper.attributes[curr].type) {
+    const $or = Object.keys(Activetp.attributes).reduce((acc, curr) => {
+      switch (Activetp.attributes[curr].type) {
         case 'integer':
         case 'float':
         case 'decimal':
@@ -188,7 +188,7 @@ module.exports = {
       }
     }, []);
 
-    return Termpaper
+    return Activetp
       .find({ $or })
       .sort(filters.sort)
       .skip(filters.start)

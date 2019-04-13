@@ -665,6 +665,10 @@
           "description": {
             "type": "string",
             "default": ""
+          },
+          "accepted": {
+            "type": "boolean",
+            "default": false
           }
         }
       },
@@ -677,6 +681,10 @@
           "description": {
             "type": "string",
             "default": ""
+          },
+          "accepted": {
+            "type": "boolean",
+            "default": false
           }
         }
       }

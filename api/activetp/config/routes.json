@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/achives",
-      "handler": "Achives.find",
+      "path": "/activetps",
+      "handler": "Activetp.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/achives/count",
-      "handler": "Achives.count",
+      "path": "/activetps/count",
+      "handler": "Activetp.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/achives/:_id",
-      "handler": "Achives.findOne",
+      "path": "/activetps/:_id",
+      "handler": "Activetp.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/achives",
-      "handler": "Achives.create",
+      "path": "/activetps",
+      "handler": "Activetp.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/achives/:_id",
-      "handler": "Achives.update",
+      "path": "/activetps/:_id",
+      "handler": "Activetp.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/achives/:_id",
-      "handler": "Achives.destroy",
+      "path": "/activetps/:_id",
+      "handler": "Activetp.destroy",
       "config": {
         "policies": []
       }

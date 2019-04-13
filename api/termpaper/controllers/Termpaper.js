@@ -81,22 +81,22 @@ module.exports = {
         if (!user) {
           return ctx.badRequest("Auth error");
         }
-        return strapi.services.termpaper
-          .add({
-            ...ctx.request.body,
-            lecturer: ctx.state.user.id
-          })
-          .then(tp => {
-            if (!tp) {
-              return ctx.badRequest("Term paper create error");
+        return Termpaper.create({
+          ...ctx.request.body,
+          accepted: false
+        }).then(tp => {
+          if (!tp) {
+            return ctx.badRequest("Term paper create error");
+          }
+          return Availabletp.create({ user: user.id, temppaper: tp.id }).then(
+            avTP => {
+              if (!avTP) {
+                return ctx.badRequest("Term paper create error");
+              }
+              return ctx.send({ msg: "Added", tp });
             }
-            if (!user.availableTermPapers) {
-              user.availableTermPapers = [];
-            }
-            user.availableTermPapers.push(tp);
-            user.save();
-            return ctx.send({ msg: "Added", tp });
-          });
+          );
+        });
       });
   },
   takeTP: async ctx => {
@@ -107,33 +107,22 @@ module.exports = {
           return ctx.badRequest("Auth error");
         }
         return Termpaper.findOne({
-          theme: ctx.request.body.tpTheme
-        })
-          .populate("lecturer")
-          .then(tp => {
-            if (!tp) {
-              return ctx.badRequest("Term paper take error");
+          theme: ctx.request.body.theme
+        }).then(tp => {
+          if (!tp) {
+            return ctx.badRequest("Term paper take error");
+          }
+          return Activetp.create({ user: user.id, temppaper: tp.id }).then(
+            aTP => {
+              if (!aTP) {
+                return ctx.badRequest("Term paper create error");
+              }
+              tp.accepted = true;
+              tp.save();
+              return ctx.send({ msg: "Accepted", tp });
             }
-            return strapi.plugins["users-permissions"].models.user
-              .findOne({ email: tp.lecturer.email })
-              .then(lecturer => {
-                if (!lecturer) {
-                  return ctx.badRequest("Term paper take error2");
-                }
-                if (!user.ActiveTermPapers) {
-                  user.activeTermPapers = [];
-                }
-                lecturer.availableTermPapers = lecturer.availableTermPapers.filter(
-                  element => element.id != tp.id
-                );
-                tp.students = ctx.state.user.id;
-                tp.save();
-                lecturer.save();
-                user.activeTermPapers.push(tp);
-                user.save();
-                return ctx.send({ msg: "Taken", tp });
-              });
-          });
+          );
+        });
       });
   }
 };
