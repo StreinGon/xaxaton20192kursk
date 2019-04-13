@@ -16,7 +16,7 @@ module.exports = {
   },
   setAchive: async ctx => {
     if (ctx.request.body.achiveTitle && ctx.request.body.email) {
-      return Achive.findOne({ title: ctx.request.body.achiveTitle }).then(
+      return Achives.findOne({ title: ctx.request.body.achiveTitle }).then(
         achive => {
           if (!achive) {
             return ctx.badRequest("ERROR2");
@@ -64,7 +64,7 @@ module.exports = {
   },
   deleteAchive: async ctx => {
     if (ctx.request.body.achiveTitle && ctx.request.body.email) {
-      return Achive.findOne({ title: ctx.request.body.achiveTitle }).then(
+      return Achives.findOne({ title: ctx.request.body.achiveTitle }).then(
         achive => {
           if (!achive) {
             return ctx.badRequest("Achive  not found");
