@@ -47,12 +47,14 @@ module.exports = {
         .findOne({ email: ctx.state.user.email })
         .then(user => {
           if (user) {
-            return Relationuserachives.find({ user: user.id }).then(achives => {
-              return ctx.send({
-                msg: "Achives:",
-                achives
+            return Relationuserachives.find({ user: user.id })
+              .populate("achives")
+              .then(achives => {
+                return ctx.send({
+                  msg: "Achives:",
+                  achives
+                });
               });
-            });
           }
           return ctx.badRequest("User not found");
         });
