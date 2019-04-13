@@ -523,63 +523,6 @@
           "description": {
             "type": "string",
             "default": ""
-          },
-          "users": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "username",
-                "email"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "TermPapers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "activeTermPapers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "achives": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
           }
         }
       },
@@ -592,12 +535,6 @@
           "description": {
             "type": "string",
             "default": ""
-          },
-          "users": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           }
         }
       }

@@ -16,16 +16,6 @@
     "description": {
       "default": "",
       "type": "string"
-    },
-    "lecturer": {
-      "collection": "user",
-      "via": "TermPapers",
-      "plugin": "users-permissions"
-    },
-    "students": {
-      "collection": "user",
-      "via": "activeTermPapers",
-      "plugin": "users-permissions"
     }
   }
 }

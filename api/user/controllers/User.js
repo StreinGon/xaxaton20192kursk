@@ -27,17 +27,14 @@ module.exports = {
               if (!user) {
                 return ctx.badRequest("ERROR3");
               }
-              if (!user.achives) {
-                user.achives = [];
-              }
-              if (!achive.users) {
-                achive.users = [];
-              }
-              achive.users.push(user);
-              achive.save();
-              user.achives.push(achive);
-              user.save();
-              return ctx.send({ msg: "Added", user });
+              return Relationuserachives.create({
+                user: user.id,
+                achives: achive.id
+              }).then(data => {
+                if (!data) {
+                }
+                return ctx.send({ msg: "Added", data: { user, achive } });
+              });
             });
         }
       );
@@ -48,13 +45,13 @@ module.exports = {
     if (ctx.state.user) {
       return strapi.plugins["users-permissions"].models.user
         .findOne({ email: ctx.state.user.email })
-        .populate("achives")
         .then(user => {
-          console.log(user);
           if (user) {
-            return ctx.send({
-              msg: "Achives:",
-              achives: user.achives
+            return Relationuserachives.find({ user: user.id }).then(achives => {
+              return ctx.send({
+                msg: "Achives:",
+                achives
+              });
             });
           }
           return ctx.badRequest("User not found");
@@ -76,22 +73,24 @@ module.exports = {
               if (!user) {
                 return ctx.badRequest("user not found");
               }
-              if (!user.achives) {
-                return ctx.badRequest("User dont have any achives");
-              }
-              console.log(achive);
-              if (!achive.users) {
-                return ctx.badRequest("Achives error");
-              }
-              achive.users = achive.users.filter(
-                element => element.id !== user.id
-              );
-              user.achives = user.achives.filter(
-                element => element.id !== achive.id
-              );
-              user.save();
-              achive.save();
-              return ctx.send({ msg: "Deleted", user });
+              // return strapi.services.relationuserachives
+              //   .remove({
+              //     user: user.id,
+              //     achives: achive.id
+              //   })
+              //   .then(achive => {
+              //     return ctx.send({
+              //       msg: "Deleted"
+              //     });
+              //   });
+              return Relationuserachives.findOneAndDelete({
+                user: user.id,
+                achives: achive.id
+              }).then(achive => {
+                return ctx.send({
+                  msg: "Deleted"
+                });
+              });
             });
         }
       );

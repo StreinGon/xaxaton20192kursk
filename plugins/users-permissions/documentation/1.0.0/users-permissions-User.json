@@ -1162,90 +1162,19 @@
               }
             }
           },
-          "TermPapers": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "theme": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "lecturer": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "students": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "activeTermPapers": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "theme": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "lecturer": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "students": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "achives": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "users": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
+          "relationuserachives": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "achives": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
               }
             }
           }
@@ -1286,23 +1215,8 @@
           "role": {
             "type": "string"
           },
-          "TermPapers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "activeTermPapers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "achives": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "relationuserachives": {
+            "type": "string"
           }
         }
       }

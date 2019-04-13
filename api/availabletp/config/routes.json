@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/availabletps",
+      "handler": "Availabletp.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/availabletps/count",
+      "handler": "Availabletp.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/availabletps/:_id",
+      "handler": "Availabletp.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/availabletps",
+      "handler": "Availabletp.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/availabletps/:_id",
+      "handler": "Availabletp.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/availabletps/:_id",
+      "handler": "Availabletp.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

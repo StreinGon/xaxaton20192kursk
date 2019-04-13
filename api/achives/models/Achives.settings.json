@@ -1,6 +1,6 @@
 {
   "connection": "default",
-  "collectionName": "",
+  "collectionName": "achives",
   "info": {
     "name": "achives",
     "description": ""
@@ -16,12 +16,6 @@
     "description": {
       "default": "",
       "type": "string"
-    },
-    "users": {
-      "collection": "user",
-      "via": "achives",
-      "dominant": true,
-      "plugin": "users-permissions"
     }
   }
 }

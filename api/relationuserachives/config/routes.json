@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/relationuserachives",
+      "handler": "Relationuserachives.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/relationuserachives/count",
+      "handler": "Relationuserachives.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/relationuserachives/:_id",
+      "handler": "Relationuserachives.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/relationuserachives",
+      "handler": "Relationuserachives.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/relationuserachives/:_id",
+      "handler": "Relationuserachives.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/relationuserachives/:_id",
+      "handler": "Relationuserachives.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
