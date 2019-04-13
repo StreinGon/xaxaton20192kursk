@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "04/12/2019 2:59:38 PM"
+    "x-generation-date": "04/13/2019 12:14:11 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -47,16 +47,16 @@
     "/achives": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the achives's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve achives document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Achive"
+                    "$ref": "#/components/schemas/Achives"
                   }
                 }
               }
@@ -95,7 +95,7 @@
         },
         "summary": "",
         "tags": [
-          "Achive"
+          "Achives"
         ],
         "parameters": [
           {
@@ -232,14 +232,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new achives record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve achives document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Achive"
+                  "$ref": "#/components/schemas/Achives"
                 }
               }
             }
@@ -277,7 +277,7 @@
         },
         "summary": "",
         "tags": [
-          "Achive"
+          "Achives"
         ],
         "requestBody": {
           "description": "",
@@ -285,7 +285,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAchive"
+                "$ref": "#/components/schemas/NewAchives"
               }
             }
           }
@@ -295,10 +295,10 @@
     "/achives/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of achives documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve achives document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -344,7 +344,7 @@
         },
         "summary": "",
         "tags": [
-          "Achive"
+          "Achives"
         ],
         "parameters": []
       }
@@ -352,14 +352,14 @@
     "/achives/{_id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one achives record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve achives document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Achive"
+                  "$ref": "#/components/schemas/Achives"
                 }
               }
             }
@@ -397,7 +397,7 @@
         },
         "summary": "",
         "tags": [
-          "Achive"
+          "Achives"
         ],
         "parameters": [
           {
@@ -414,14 +414,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single achives record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve achives document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Achive"
+                  "$ref": "#/components/schemas/Achives"
                 }
               }
             }
@@ -459,7 +459,7 @@
         },
         "summary": "",
         "tags": [
-          "Achive"
+          "Achives"
         ],
         "requestBody": {
           "description": "",
@@ -467,7 +467,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewAchive"
+                "$ref": "#/components/schemas/NewAchives"
               }
             }
           }
@@ -487,10 +487,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single achives record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single achives based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -533,7 +533,7 @@
         },
         "summary": "",
         "tags": [
-          "Achive"
+          "Achives"
         ],
         "parameters": [
           {
@@ -5976,11 +5976,9 @@
   },
   "components": {
     "schemas": {
-      "Achive": {
+      "Achives": {
         "required": [
-          "id",
-          "title",
-          "description"
+          "id"
         ],
         "properties": {
           "id": {
@@ -6030,16 +6028,19 @@
                 "role": {
                   "type": "string"
                 },
-                "achives": {
+                "TermPapers": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "TermPapers": {
-                  "type": "string"
-                },
                 "activeTermPapers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "achives": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -6050,11 +6051,7 @@
           }
         }
       },
-      "NewAchive": {
-        "required": [
-          "title",
-          "description"
-        ],
+      "NewAchives": {
         "properties": {
           "title": {
             "type": "string",
@@ -6198,16 +6195,19 @@
                 "role": {
                   "type": "string"
                 },
-                "achives": {
+                "TermPapers": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "TermPapers": {
-                  "type": "string"
-                },
                 "activeTermPapers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "achives": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -6252,16 +6252,19 @@
                 "role": {
                   "type": "string"
                 },
-                "achives": {
+                "TermPapers": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "TermPapers": {
-                  "type": "string"
-                },
                 "activeTermPapers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "achives": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -6470,16 +6473,19 @@
                 "role": {
                   "type": "string"
                 },
-                "achives": {
+                "TermPapers": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
                 },
-                "TermPapers": {
-                  "type": "string"
-                },
                 "activeTermPapers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "achives": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -6580,57 +6586,33 @@
               }
             }
           },
-          "achives": {
+          "TermPapers": {
             "type": "array",
             "items": {
               "required": [
-                "id",
-                "title",
-                "description"
+                "id"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "title": {
+                "theme": {
                   "type": "string"
                 },
                 "description": {
                   "type": "string"
                 },
-                "users": {
+                "lecturer": {
                   "type": "array",
                   "items": {
                     "type": "string"
                   }
-                }
-              }
-            }
-          },
-          "TermPapers": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "theme": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "lecturer": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "students": {
-                "type": "array",
-                "items": {
-                  "type": "string"
+                },
+                "students": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
               }
             }
@@ -6658,6 +6640,31 @@
                   }
                 },
                 "students": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "achives": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "users": {
                   "type": "array",
                   "items": {
                     "type": "string"
@@ -6703,16 +6710,19 @@
           "role": {
             "type": "string"
           },
-          "achives": {
+          "TermPapers": {
             "type": "array",
             "items": {
               "type": "string"
             }
           },
-          "TermPapers": {
-            "type": "string"
-          },
           "activeTermPapers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "achives": {
             "type": "array",
             "items": {
               "type": "string"
@@ -6756,7 +6766,7 @@
   },
   "tags": [
     {
-      "name": "Achive"
+      "name": "Achives"
     },
     {
       "name": "Class"

@@ -1,18 +1,18 @@
 {
   "paths": {
-    "/termpapers": {
+    "/achives": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the achives's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve achives document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Termpaper"
+                    "$ref": "#/components/schemas/Achives"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Termpaper"
+          "Achives"
         ],
         "parameters": [
           {
@@ -188,14 +188,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new achives record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve achives document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Termpaper"
+                  "$ref": "#/components/schemas/Achives"
                 }
               }
             }
@@ -233,7 +233,7 @@
         },
         "summary": "",
         "tags": [
-          "Termpaper"
+          "Achives"
         ],
         "requestBody": {
           "description": "",
@@ -241,20 +241,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewTermpaper"
+                "$ref": "#/components/schemas/NewAchives"
               }
             }
           }
         }
       }
     },
-    "/termpapers/count": {
+    "/achives/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of achives documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve achives document(s)",
             "content": {
               "application/json": {
                 "schema": {
@@ -300,22 +300,22 @@
         },
         "summary": "",
         "tags": [
-          "Termpaper"
+          "Achives"
         ],
         "parameters": []
       }
     },
-    "/termpapers/{_id}": {
+    "/achives/{_id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one achives record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve achives document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Termpaper"
+                  "$ref": "#/components/schemas/Achives"
                 }
               }
             }
@@ -353,7 +353,7 @@
         },
         "summary": "",
         "tags": [
-          "Termpaper"
+          "Achives"
         ],
         "parameters": [
           {
@@ -370,14 +370,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single achives record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve achives document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Termpaper"
+                  "$ref": "#/components/schemas/Achives"
                 }
               }
             }
@@ -415,7 +415,7 @@
         },
         "summary": "",
         "tags": [
-          "Termpaper"
+          "Achives"
         ],
         "requestBody": {
           "description": "",
@@ -423,7 +423,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewTermpaper"
+                "$ref": "#/components/schemas/NewAchives"
               }
             }
           }
@@ -443,10 +443,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single achives record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single achives based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -489,7 +489,7 @@
         },
         "summary": "",
         "tags": [
-          "Termpaper"
+          "Achives"
         ],
         "parameters": [
           {
@@ -504,153 +504,11 @@
           }
         ]
       }
-    },
-    "/termpapers/createNewTP": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Termpaper"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/termpapers/takeTP": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Termpaper"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   },
   "components": {
     "schemas": {
-      "Termpaper": {
+      "Achives": {
         "required": [
           "id"
         ],
@@ -658,7 +516,7 @@
           "id": {
             "type": "string"
           },
-          "theme": {
+          "title": {
             "type": "string",
             "default": ""
           },
@@ -666,64 +524,7 @@
             "type": "string",
             "default": ""
           },
-          "lecturer": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "username",
-                "email"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "provider": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "resetPasswordToken": {
-                  "type": "string"
-                },
-                "confirmed": {
-                  "type": "boolean"
-                },
-                "blocked": {
-                  "type": "boolean"
-                },
-                "role": {
-                  "type": "string"
-                },
-                "TermPapers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "activeTermPapers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "achives": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "students": {
+          "users": {
             "type": "array",
             "items": {
               "required": [
@@ -782,9 +583,9 @@
           }
         }
       },
-      "NewTermpaper": {
+      "NewAchives": {
         "properties": {
-          "theme": {
+          "title": {
             "type": "string",
             "default": ""
           },
@@ -792,13 +593,7 @@
             "type": "string",
             "default": ""
           },
-          "lecturer": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "students": {
+          "users": {
             "type": "array",
             "items": {
               "type": "string"
@@ -810,7 +605,7 @@
   },
   "tags": [
     {
-      "name": "Termpaper"
+      "name": "Achives"
     }
   ]
 }
