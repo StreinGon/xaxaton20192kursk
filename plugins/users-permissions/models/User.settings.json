@@ -49,10 +49,6 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "achives": {
-      "collection": "achive",
-      "via": "users"
-    },
     "TermPapers": {
       "collection": "termpaper",
       "via": "lecturer"
