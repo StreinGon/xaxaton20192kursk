@@ -63,6 +63,30 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/termpapers/getAvTP/:id",
+      "handler": "Termpaper.getAvTP",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/termpapers/getAcTP/:id",
+      "handler": "Termpaper.getAcTP",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/termpapers/getLecturerTP/:id",
+      "handler": "Termpaper.getLecturerTP",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

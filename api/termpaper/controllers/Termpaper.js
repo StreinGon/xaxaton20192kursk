@@ -75,6 +75,9 @@ module.exports = {
     return strapi.services.termpaper.remove(ctx.params);
   },
   createNewTP: async ctx => {
+    if (!ctx.state.user) {
+      return ctx.badRequest("Auth error");
+    }
     return strapi.plugins["users-permissions"].models.user
       .findOne({ email: ctx.state.user.email })
       .then(user => {
@@ -100,6 +103,9 @@ module.exports = {
       });
   },
   takeTP: async ctx => {
+    if (!ctx.state.user) {
+      return ctx.badRequest("Auth error");
+    }
     return strapi.plugins["users-permissions"].models.user
       .findOne({ email: ctx.state.user.email })
       .then(user => {
@@ -123,6 +129,70 @@ module.exports = {
             }
           );
         });
+      });
+  },
+  getAvTP: async ctx => {
+    console.log("fasf");
+    if (!ctx.state.user) {
+      return ctx.badRequest("Auth error");
+    }
+    return strapi.plugins["users-permissions"].models.user
+      .findOne({ email: ctx.state.user.email })
+      .then(user => {
+        if (!user) {
+          return ctx.badRequest("Auth error");
+        }
+
+        return Availabletp.find({ accepted: false })
+          .populate("termpaper")
+          .then(avTP => {
+            if (!avTP) {
+              return ctx.badRequest("Term paper getAvTP error");
+            }
+            return ctx.send({ msg: "Termpapers: ", temppapers: avTP });
+          });
+      });
+  },
+  getAcTP: async ctx => {
+    if (!ctx.state.user) {
+      return ctx.badRequest("Auth error");
+    }
+    return strapi.plugins["users-permissions"].models.user
+      .findOne({ email: ctx.state.user.email })
+      .then(user => {
+        if (!user) {
+          return ctx.badRequest("Auth error");
+        }
+
+        return Activetp.find({ user: user.id })
+          .populate("termpaper")
+          .then(avTP => {
+            if (!avTP) {
+              return ctx.badRequest("Term paper getAvTP error");
+            }
+            return ctx.send({ msg: "Termpapers: ", temppapers: avTP });
+          });
+      });
+  },
+  getLecturerTP: async ctx => {
+    if (!ctx.state.user) {
+      return ctx.badRequest("Auth error");
+    }
+    return strapi.plugins["users-permissions"].models.user
+      .findOne({ email: ctx.state.user.email })
+      .then(user => {
+        if (!user) {
+          return ctx.badRequest("Auth error");
+        }
+
+        return Availabletp.find({ user: user.id })
+          .populate("termpaper")
+          .then(avTP => {
+            if (!avTP) {
+              return ctx.badRequest("Term paper getAvTP error");
+            }
+            return ctx.send({ msg: "Termpapers: ", temppapers: avTP });
+          });
       });
   }
 };
