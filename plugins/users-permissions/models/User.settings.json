@@ -48,6 +48,18 @@
       "via": "users",
       "plugin": "users-permissions",
       "configurable": false
+    },
+    "achives": {
+      "collection": "achive",
+      "via": "users"
+    },
+    "TermPapers": {
+      "collection": "termpaper",
+      "via": "lecturer"
+    },
+    "activeTermPapers": {
+      "collection": "termpaper",
+      "via": "students"
     }
   },
   "collectionName": "users-permissions_user"

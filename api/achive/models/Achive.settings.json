@@ -1,0 +1,30 @@
+{
+  "connection": "default",
+  "collectionName": "achive",
+  "info": {
+    "name": "achive",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "default": "",
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "users": {
+      "collection": "user",
+      "via": "achives",
+      "plugin": "users-permissions"
+    }
+  }
+}

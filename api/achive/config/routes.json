@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/achives",
+      "handler": "Achive.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/achives/count",
+      "handler": "Achive.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/achives/:_id",
+      "handler": "Achive.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/achives",
+      "handler": "Achive.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/achives/:_id",
+      "handler": "Achive.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/achives/:_id",
+      "handler": "Achive.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
