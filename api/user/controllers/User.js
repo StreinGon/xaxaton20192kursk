@@ -19,13 +19,13 @@ module.exports = {
       return Achives.findOne({ title: ctx.request.body.achiveTitle }).then(
         achive => {
           if (!achive) {
-            return ctx.badRequest("ERROR2");
+            return ctx.badRequest("Achive not found");
           }
           return strapi.plugins["users-permissions"].models.user
             .findOne({ email: ctx.request.body.email })
             .then(user => {
               if (!user) {
-                return ctx.badRequest("ERROR3");
+                return ctx.badRequest("User not found");
               }
               return Relationuserachives.create({
                 user: user.id,
@@ -39,7 +39,7 @@ module.exports = {
         }
       );
     }
-    return ctx.badRequest("ERROR");
+    return ctx.badRequest("Auth error");
   },
   getMyAchives: async ctx => {
     if (ctx.state.user) {
