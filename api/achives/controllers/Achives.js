@@ -98,6 +98,8 @@ module.exports = {
    */
 
   destroy: async (ctx, next) => {
-    return strapi.services.achives.remove(ctx.params);
+    return Relationuserachives.findOneAndDelete(ctx.params).then(achive => {
+      return strapi.services.achives.remove(ctx.params);
+    });
   }
 };
