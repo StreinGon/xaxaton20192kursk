@@ -1,6 +1,14 @@
 {
   "routes": [
     {
+      "method": "DELETE",
+      "path": "/achives/:_id",
+      "handler": "Achives.destroy",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "GET",
       "path": "/achives/getAchives",
       "handler": "Achives.getAchives",
@@ -44,14 +52,6 @@
       "method": "PUT",
       "path": "/achives/:_id",
       "handler": "Achives.update",
-      "config": {
-        "policies": []
-      }
-    },
-    {
-      "method": "DELETE",
-      "path": "/achives/:_id",
-      "handler": "Achives.destroy",
       "config": {
         "policies": []
       }
