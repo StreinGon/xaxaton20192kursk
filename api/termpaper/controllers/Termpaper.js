@@ -96,7 +96,7 @@ module.exports = {
           if (!tp) {
             return ctx.badRequest("Term paper create error");
           }
-          return Availabletp.create({ user: user.id, temppaper: tp.id }).then(
+          return Availabletp.create({ user: user.id, termpaper: tp.id }).then(
             avTP => {
               if (!avTP) {
                 return ctx.badRequest("Term paper create error");
