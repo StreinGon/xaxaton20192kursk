@@ -3,7 +3,7 @@
     {
       "method": "GET",
       "path": "/schedules/getSchedules",
-      "handler": "Schedule.getSchedules",
+      "handler": "Schedule.getSchedule",
       "config": {
         "policies": []
       }
