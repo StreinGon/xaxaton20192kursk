@@ -159,7 +159,7 @@ module.exports = {
         }
 
         return Availabletp.find({ accepted: false })
-          .populate("termpaper")
+          .populate(["termpaper", "user"])
           .then(avTP => {
             if (!avTP) {
               return ctx.badRequest("Term paper getAvTP error");
